@@ -1,0 +1,61 @@
+<!-- Linas Matusevičius, GRUPĖ: EKf-24 -->
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV – Linas Matusevičius</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.5; max-width: 900px; margin: 24px auto; }
+    h1 { margin: 0 0 8px; }
+    h5 { margin: 8px 0 16px; }
+    h3 { margin-top: 32px; }
+    .group { margin: 20px 0; }
+    .group a { display: inline-block; margin: 10px 0; }
+    .group img { display: block; max-width: 100%; height: auto; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>Linas Matusevičius</h1>
+  <h5>Studijų programa</h5>
+
+  <!-- f) Div konteineris:
+       <div> – semantikos nesuteikia; naudojamas elementams SU(grupuoti) į vieną bloką,
+       kad būtų patogiau juos tvarkyti ir išdėlioti (pvz., pastraipa + nuoroda + paveikslėlis). -->
+  <div class="group">
+    <!-- Visą pastraipą pabraukiame; <u> gali klaidinti, nes pabraukimas naršyklėse dažnai siejamas su nuorodomis. -->
+    <p><u>IT specialistas užtikrina, kad sistemos veiktų patikimai, o naudotojai gautų greitą pagalbą. 
+    Šiame darbe svarbus dėmesys detalėms, saugai ir nuolatinis tobulėjimas.</u></p>    
+    <a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">HTML mokymai</a>
+
+    <img src="paveikslai/IT-Specialists.jpg" alt="Svajonių darbo tematikos paveikslas" width="900" />
+  </div>
+
+  <h3>Dominančios sritys</h3>
+  <ol>
+    <li><strong>Įterptinės sistemos ir mikrovaldikliai</strong> <!-- <strong>: semantinis svarbumas; skiriasi nuo <b>, kuris tik vizualiai paryškina. --></li>
+    <li><b>Skaitmeninis dizainas ir kompiuterių architektūra</b> <!-- <b>: tik vizualus paryškinimas, semantikos nesuteikia. --></li>
+    <li>Tinklai ir kibernetinis saugumas</li>
+  </ol>
+
+  <h3>Įgūdžiai / technologijos</h3>
+  <ul>
+    <li><em>MATLAB/Simulink – modeliavimo ir duomenų analizės pagrindai</em> <!-- <em>: semantinis akcentas (intonacija, svarba). --></li>
+    <li><i>KiCad – PCB schemų ir plokščių projektavimas</i> <!-- <i>: tik kursyvas, be semantinės reikšmės. --></li>
+    <li>C/C++ – žemo lygio programavimas mikrovaldikliams ir našiems komponentams</li>
+  </ul>
+
+  <!-- Pagrindinių žymių paaiškinimai
+
+    <!DOCTYPE html> – nurodo dokumento tipą (HTML5), kad naršyklė teisingai interpretuotų kodą.
+    <html> – šakninis (aukščiausio lygio) HTML dokumento elementas.
+    <head> – metaduomenys (koduotė, pavadinimas, SEO žymos, CSS/JS nuorodos), nematomi puslapyje.
+    <meta> – metainformacija, pvz., UTF-8 koduotė ir „viewport“ nustatymai.
+    <title> – puslapio pavadinimas naršyklės kortelėje.
+    <body> – matomas puslapio turinys: antraštės, pastraipos, sąrašai, nuorodos, paveikslai ir t. t.
+
+  -->
+</body>
+</html>
