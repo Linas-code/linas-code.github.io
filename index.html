@@ -1,0 +1,542 @@
+<!-- Linas Matusevičius, GRUPĖ: EKf-24 -->
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="Linas Matusevičius">
+  <meta name="description" content="Linas Matusevičius CV puslapis.">
+  <title>Mano CV</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .about .content { text-align: center; }
+    .about .content ul { display: inline-block; text-align: left; }
+  </style>
+
+</head>
+
+<style>
+  .portfolio .portfolio-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+</style>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+      <img src="assets/img/4.jpg" alt="Elektronikos plokštės makro vaizdas" loading="lazy">
+      <div class="container" data-aos="zoom-out">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h2>Linas Matusevičius</h2>
+            <p>Esu <span class="typed" data-typed-items="IT specialistas, Kompiuterių inžinerijos entuziastas, Pradedantysis programuotojas">IT specialistas</span></p>
+            <div class="social-links">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-github"></i></a>
+              <a href="#"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Apie</h2>
+        <p>
+          Esu Linas Matusevičius – IT specialistas ir kompiuterių inžinerijos entuziastas. Mane labiausiai traukia,
+          kaip veikia aparatinė įranga „po kapotu“ ir kaip programinė įranga gali išspausti maksimalų jos potencialą.
+          Domiuosi „full-stack“ kūrimu, sistemų architektūra ir našumo optimizavimu. Studijų ir savarankiškų projektų metu
+          susipažinau su HTML/CSS/JS pagrindais, Git versijavimu, „Bootstrap“ komponentais ir paprastų API integracijomis.
+          Mėgstu aiškų kodą, dokumentaciją ir tvarkingą failų struktūrą.
+          <br><br>
+          Mano tikslas – kaupti praktinę patirtį kuriant realius sprendimus: nuo paprastų svetainių iki mažų įrankių,
+          kurie automatizuoja kasdienes užduotis. Greitai mokausi, atsakingai testuoju ir džiaugiuosi grįžtamuoju ryšiu –
+          taip greičiausiai tobulėju. Šiame CV puslapyje rasi dalį mano darbų ir mokymosi žingsnių: išsilavinimą,
+          projektus bei Matlab laboratorinių grafikų pavyzdžius.
+        </p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-8 content mx-auto">
+            <h2 class="text-center">IT / Kompiuterių inžinerija.</h2>
+            <p class="fst-italic py-3 text-center">Domiuosi web kūrimu, aparatūra ir automatizavimu.</p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Miestas:</strong> <span>Vilnius</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>El. paštas:</strong> <span>linas@example.com</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Įgūdžiai:</strong> <span>HTML, CSS, JS, Git, Bootstrap</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Statusas:</strong> <span>Atviras praktikai/projektams</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /About Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-emoji-smile"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Happy Clients</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-journal-richtext"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Projects</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-headset"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hours Of Support</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-people"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hard Workers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Stats Section -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Įgūdžiai</h2>
+        <p>Technologijos ir įrankiai, kuriais šiuo metu naudojuosi mokymuose ir projektuose</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row skills-content skills-animation">
+          <div class="col-lg-6">
+            <div class="progress">
+              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="progress">
+              <span class="skill"><span>PHP</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>WordPress/CMS</span> <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Skills Section -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Aprašymas</h2>
+        <p>Žemiau – svarbiausi mano mokymosi ir praktikos žingsniai.</p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Išsilavinimas</h3>
+            <div class="resume-item">
+              <h4>VILNIUS TECH – (studijos)</h4>
+              <h5>2024 – dabar</h5>
+              <p><em>Kompiuterių inžinerijos / IT krypties studijos.</em></p>
+              <ul>
+                <li>Projektai: asmeninis CV puslapis, paprastos JS sąveikos.</li>
+                <li>Technologijos: HTML, CSS, JavaScript, Git, Bootstrap.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>IT kursai / savišvieta</h4>
+              <h5>2023 – 2024</h5>
+              <p><em>„Python“ pradmenys, „Web“ pagrindai, Git.</em></p>
+              <ul>
+                <li>Versijavimas su Git ir GitHub.</li>
+                <li>Automatizavimo mini-skriptai ir duomenų apdorojimo pagrindai.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Patirtis</h3>
+            <div class="resume-item">
+              <h4>Akademiniai / asmeniniai projektai</h4>
+              <h5>2024</h5>
+              <p><em>Front-end pratybos ir laboratoriniai darbai</em></p>
+              <ul>
+                <li>Sukurtas responsyvus CV puslapis pagal šabloną.</li>
+                <li>„Portfolio“ su Matlab grafikais (3–4 laboratoriniai).</li>
+                <li>Fokusas į semantinį HTML ir prieinamus „alt“ aprašus.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Savanorystė / pagalba IT</h4>
+              <h5>2023</h5>
+              <p><em>Techninė pagalba renginiuose ir mokykloje</em></p>
+              <ul>
+                <li>Kompiuterių paruošimas, tinklo suvedimas, smulkios konfigūracijos.</li>
+                <li>Instrukcijų parengimas ir vartotojų konsultavimas.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Resume Section -->
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Atlikti darbai</h2>
+    <p>Matlab grafikai ir IT teminės iliustracijos.</p>
+  </div>
+
+  <div class="container">
+    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+      <!-- Filtrai -->
+      <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+        <li data-filter="*" class="filter-active">Visi</li>
+        <li data-filter=".filter-ld3">3 LD</li>
+        <li data-filter=".filter-ld4">4 LD</li>
+        <li data-filter=".filter-it">IT</li>
+      </ul>
+
+      <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+        <!-- 3 LD -->
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ld3">
+          <img src="assets/img/1.png" class="img-fluid" alt="Matlab grafikas – 3 LD užduotis 1" loading="lazy">
+          <div class="portfolio-info">
+            <h4>3 LD – Užduotis 1</h4>
+            <p>Signalo diagrama</p>
+            <a href="assets/img/1.png" title="3 LD – Užduotis 1" data-gallery="portfolio-gallery-ld3" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ld3">
+          <img src="assets/img/2.png" class="img-fluid" alt="Matlab grafikas – 3 LD užduotis 2" loading="lazy">
+          <div class="portfolio-info">
+            <h4>3 LD – Užduotis 2</h4>
+            <p>Funkcijos vizualizacija</p>
+            <a href="assets/img/2.png" title="3 LD – Užduotis 2" data-gallery="portfolio-gallery-ld3" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+          </div>
+        </div>
+
+        <!-- 4 LD -->
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ld4">
+          <img src="assets/img/3.png" class="img-fluid" alt="Matlab grafikas – 4 LD užduotis 1" loading="lazy">
+          <div class="portfolio-info">
+            <h4>4 LD – Užduotis 1</h4>
+            <p>Duomenų palyginimas</p>
+            <a href="assets/img/3.png" title="4 LD – Užduotis 1" data-gallery="portfolio-gallery-ld4" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+          </div>
+        </div>
+
+        <!-- IT -->
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-it">
+          <img src="assets/img/4.jpg" class="img-fluid" alt="Kompiuterių inžinerijos iliustracija – mikroschemos" loading="lazy">
+          <div class="portfolio-info">
+            <h4>IT tema – Mikroschemos</h4>
+            <p>Elektronikos plokštės makro</p>
+            <a href="assets/img/4.jpg" title="IT tema – Mikroschemos" data-gallery="portfolio-gallery-it" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-it">
+          <img src="assets/img/5.jpg" class="img-fluid" alt="IT darbo aplinka – monitoriai ir duomenų vizualizacijos" loading="lazy">
+          <div class="portfolio-info">
+            <h4>IT tema – Darbo aplinka</h4>
+            <p>Monitoriai, analitika</p>
+            <a href="assets/img/5.jpg" title="IT tema – Darbo aplinka" data-gallery="portfolio-gallery-it" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-it">
+          <img src="assets/img/6.webp" class="img-fluid" alt="Kompiuterinė plokštė – IT iliustracija" loading="lazy">
+          <div class="portfolio-info">
+            <h4>IT tema – Plokštė</h4>
+            <p>WEBP iliustracija</p>
+            <a href="assets/img/6.webp" title="IT tema – Plokštė" data-gallery="portfolio-gallery-it" class="glightbox preview-link">
+              <i class="bi bi-zoom-in"></i>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /isotope-container -->
+    </div>
+  </div>
+</section>
+<!-- /Portfolio Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+<!-- Media (video + YouTube + audio) -->
+<div class="container mt-5" id="media">
+  <div class="row gy-4">
+
+    <div class="col-12">
+      <h3 class="mb-3">Media</h3>
+    </div>
+
+    <!-- Vietinis video (Pexels) -->
+    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+      <h4 class="h6 mb-2">Vietinis vaizdo įrašas (Pexels)</h4>
+      <video class="w-100 rounded" controls preload="metadata" poster="assets/img/4.jpg">
+        <source src="assets/media/1.mp4" type="video/mp4">
+        Jūsų naršyklė nepalaiko <code>video</code> žymės.
+      </video>
+      <small class="text-muted d-block mt-1">Šaltinis: Pexels</small>
+    </div>
+
+    <!-- YouTube įterpimas -->
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+  <h4 class="h6 mb-2">YouTube įrašas</h4>
+  <div class="ratio ratio-16x9 rounded overflow-hidden">
+    <iframe
+      src="https://www.youtube.com/embed/BoUVIhtqjAw"
+      title="YouTube video player"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <small class="text-muted d-block mt-1">
+    Nuoroda: https://www.youtube.com/watch?v=BoUVIhtqjAw
+  </small>
+</div>
+
+    <!-- Vietinis audio (Pixabay) -->
+    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+      <h4 class="h6 mb-2">Garso įrašas (Pixabay)</h4>
+      <audio controls preload="metadata">
+        <source src="assets/media/2.mp3" type="audio/mpeg">
+        Jūsų naršyklė nepalaiko <code>audio</code> žymės.
+      </audio>
+      <small class="text-muted d-block mt-1">Šaltinis: Pixabay</small>
+    </div>
+
+  </div>
+</div>
+
+    </section>
+    <!-- /Services Section -->
+
+    <!-- Contact Section -->
+<section id="contact" class="contact section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Kontaktai</h2>
+    <p>Turite klausimų ar pasiūlymų? Parašykite – atrašysiu kuo greičiau.</p>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container" data-aos="fade" data-aos-delay="100">
+    <div class="row gy-4">
+
+      <div class="col-lg-4">
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+          <i class="bi bi-geo-alt flex-shrink-0"></i>
+          <div>
+            <h3>Adresas</h3>
+            <p>Vilnius, Lietuva</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-telephone flex-shrink-0"></i>
+          <div>
+            <h3>Skambinkite</h3>
+            <p>+370 6xx xxx xx</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <i class="bi bi-envelope flex-shrink-0"></i>
+          <div>
+            <h3>El. paštas</h3>
+            <p>linas@example.com</p>
+          </div>
+        </div><!-- End Info Item -->
+      </div>
+
+      <div class="col-lg-8">
+        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Jūsų vardas" required>
+            </div>
+
+            <div class="col-md-6">
+              <input type="email" class="form-control" name="email" placeholder="Jūsų el. paštas" required>
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Tema" required>
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Žinutė" required></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Siunčiama...</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Žinutė išsiųsta. Ačiū!</div>
+
+              <button type="submit">Siųsti žinutę</button>
+            </div>
+
+          </div>
+        </form>
+      </div><!-- End Contact Form -->
+
+    </div>
+  </div>
+
+</section>
+    <!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+<h3 class="sitename">Linas Matusevičius</h3>
+<p>IT / kompiuterių inžinerijos entuziastas. Kuriu paprastas svetaines, automatizuoju smulkius darbus ir kaupiu praktiką.</p>
+<div class="social-links d-flex justify-content-center">
+  <a href="https://github.com/tavo_vardas" aria-label="GitHub"><i class="bi bi-github"></i></a>
+  <a href="https://www.linkedin.com/in/tavo_vardas" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+  <a href="mailto:linas@example.com" aria-label="El. paštas"><i class="bi bi-envelope"></i></a>
+</div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Linas Matusevičius</strong> <span>All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<!-- Force start at the top and remove anchor on reload -->
+<script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('load', function () {
+    if (location.hash) {
+      history.replaceState(null, document.title, location.pathname + location.search);
+    }
+    window.scrollTo(0, 0);
+  });
+</script>
