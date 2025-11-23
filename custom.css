@@ -1,0 +1,492 @@
+/* 2) TYPOGRAPHY – nauja šriftų šeima, dydžiai, tarpai */
+:root{
+  /* pakeičiam šablono kintamuosius – matomas pokytis visur */
+  --default-font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --heading-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --accent-color: #0ea5e9;      /* ryškesnė mėlyna geram kontrastui */
+  --heading-color: #0f172a;     /* tamsesnės antraštės */
+  --default-color: #1f2937;     /* tekstas */
+}
+
+/* antraščių hierarchija – dydžiai, storis, tarpraidiniai */
+h1{ font-size:clamp(36px,4.8vw,56px); line-height:1.15; letter-spacing:-0.02em; font-weight:900; }
+h2{ font-size:clamp(28px,3.6vw,40px); line-height:1.2;  font-weight:800; }
+h3{ font-size:clamp(22px,2.4vw,28px); line-height:1.25; font-weight:700; }
+h4,h5,h6{ font-weight:700; }
+p{ line-height:1.8; max-width:75ch; }
+
+/* 3) BUTTONS + LINKS su :hover ir :active */
+a{
+  color: var(--accent-color);
+  text-decoration:none;
+  transition: color .2s ease, opacity .2s ease, text-decoration-color .2s;
+  text-decoration-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+a:hover{ opacity:.9; text-decoration: underline; }
+a:active{ opacity:1; }
+
+button,
+.btn,
+.contact .php-email-form button[type=submit]{
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border:0;
+  border-radius:12px;
+  padding:.75rem 1.15rem;
+  font-weight:700;
+  box-shadow:0 10px 24px rgba(14,165,233,.25);
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s;
+}
+button:hover,
+.btn:hover,
+.contact .php-email-form button[type=submit]:hover{
+  transform: translateY(-1px);
+  box-shadow:0 14px 30px rgba(14,165,233,.32);
+}
+button:active,
+.btn:active,
+.contact .php-email-form button[type=submit]:active{
+  transform: translateY(0);
+  filter: saturate(1.2);
+}
+
+#about.section, #resume.section, #portfolio.section{
+  padding: 80px 0;
+}
+
+/* 4b) TURINIO BLOKŲ „kortelės“ – kraštinės, radius, šešėliai */
+#about .container,
+#resume .container,
+#portfolio .container{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:32px;
+  box-shadow:0 12px 32px rgba(2,6,23,.06);
+}
+#about .container{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+
+/* Sekcijos pavadinimo zona – švaresnė apačia */
+.section-title{
+  padding-bottom:40px;
+}
+.section-title h2{
+  padding-bottom:16px;
+}
+
+/* (1) Navigacijos juosta (kairėje) */
+.navmenu{
+  backdrop-filter: saturate(160%) blur(10px);
+}
+.navmenu a{
+  border-radius:12px;
+  background: color-mix(in srgb, var(--default-color), transparent 94%);
+  font-weight:600;
+}
+.navmenu a:hover,
+.navmenu .active{
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* (2) Įgūdžių progreso juostos */
+.skills .progress-bar-wrap{
+  background:#e5e7eb;
+  border-radius:999px;
+  overflow:hidden;
+}
+.skills .progress-bar{
+  background: linear-gradient(90deg, #22d3ee, #0ea5e9);
+  border-radius:999px;
+  height:12px;
+}
+
+/* Papildomai (neprivaloma, bet gražu): „į viršų“ mygtukas */
+.scroll-top{
+  border-radius:14px;
+  width:48px; height:48px;
+  box-shadow:0 12px 30px rgba(14,165,233,.35);
+}
+
+/* 6) KONTRASTAS – užtikrinam gerą skaitomumą ant šviesių fonų */
+.hero p span{ border-bottom: 3px solid var(--accent-color); }
+.footer .social-links a{ color:#fff; }  /* aiškus kontrastas ant akcento */
+
+/* Smulkūs patogumai */
+img{ border-radius:8px; } /* vizualiai tvarkingiau portfolio */
+/* Pašalinam šoninės juostos pilką/permatomą stulpą */
+.header,
+.header::before,
+.navmenu,
+.navmenu::before{
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Nuorodos – be fono, bet išsiskleidus/užvedus viskas veikia */
+.navmenu a{
+  background: transparent !important;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.navmenu a:hover,
+.navmenu .active{
+  background: var(--accent-color) !important;
+  color: #fff !important;
+}
+/* === Numeruotas sąrašas su skaitikliu === */
+ol.ol-custom{
+  counter-reset: item;
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+ol.ol-custom > li{
+  counter-increment: item;
+  position: relative;
+  padding-left: 2.6rem;
+  margin: .45rem 0;
+}
+ol.ol-custom > li::before{
+  content: counter(item) ".";
+  position: absolute;
+  left: 0; top: .1rem;
+  width: 2rem; height: 2rem;
+  display: grid; place-items: center;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 800;
+  border-radius: 12px;
+}
+/* įdėtinis ol – mažesni badge'ai */
+ol.ol-custom li > ol{ margin-top: .4rem; }
+ol.ol-custom li > ol > li{ padding-left: 1.8rem; }
+ol.ol-custom li > ol > li::before{
+  width: 1.4rem; height: 1.4rem;
+  font-size: .8rem;
+  border-radius: 8px;
+}
+
+/* === Nenumeruotas sąrašas su tašku === */
+ul.ul-custom{
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+ul.ul-custom > li{
+  position: relative;
+  padding-left: 1.6rem;
+  margin: .4rem 0;
+}
+ul.ul-custom > li::before{
+  content: "";
+  position: absolute;
+  left: 0; top: .55rem;
+  width: .55rem; height: .55rem;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-color), white 80%);
+}
+/* === Services 4×3 lentelė === */
+.services-table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+  margin: 1rem 0 2rem;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(2,6,23,.06);
+}
+.services-table th,
+.services-table td{
+  padding: 14px 18px;
+  vertical-align: middle;
+}
+
+/* Header Row išskirtinai */
+.services-table thead th{
+  background: #f0f9ff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  border-bottom: 2px solid #e6f2ff;
+}
+
+/* Zebra + hover efektas */
+.services-table tbody tr:nth-child(odd){ background: #fafafa; }
+.services-table tbody tr:hover{ background: #eef6ff; }
+
+/* Skyrikliai tarp eilučių */
+.services-table tbody td{ border-top: 1px solid #eef2f7; }
+.section{
+  animation: section-fade-in 0.7s ease-out both;
+}
+
+@keyframes section-fade-in{
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.hero .social-links{
+  display:flex;
+  gap:12px;
+  margin-top:16px;
+}
+
+.hero .social-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.15);
+  background:#ffffff;
+  font-size:20px;
+  color:var(--heading-color);
+  box-shadow:0 10px 25px rgba(15,23,42,.08);
+  animation:hero-icon-float 3s ease-in-out infinite;
+}
+
+.hero .social-links a:nth-child(2){
+  animation-delay:.15s;
+}
+
+.hero .social-links a:nth-child(3){
+  animation-delay:.3s;
+}
+
+.hero .social-links a:hover{
+  transform:translateY(-3px) scale(1.03);
+}
+
+@keyframes hero-icon-float{
+  0%,100%{
+    transform:translateY(0);
+    box-shadow:0 10px 25px rgba(15,23,42,.08);
+  }
+  50%{
+    transform:translateY(-6px);
+    box-shadow:0 18px 32px rgba(15,23,42,.16);
+  }
+}
+
+#preloader{
+  background:radial-gradient(circle at top,#e0f2fe 0,#f8fafc 55%,#e5f3ff 100%);
+}
+
+#preloader::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:14px;
+  height:14px;
+  border-radius:999px;
+  background:var(--accent-color);
+  border:none;
+  transform:translate(-50%,-50%) scale(.9);
+  box-shadow:-26px 0 0 rgba(14,165,233,.35),26px 0 0 rgba(14,165,233,.35);
+  animation:preloader-dots 1s ease-in-out infinite;
+}
+
+@keyframes preloader-dots{
+  0%,100%{
+    transform:translate(-50%,-50%) scale(.9);
+    box-shadow:-26px 0 0 rgba(14,165,233,.25),26px 0 0 rgba(14,165,233,.25);
+    opacity:.8;
+  }
+  50%{
+    transform:translate(-50%,-50%) scale(1.15);
+    box-shadow:-26px 0 0 rgba(14,165,233,.85),26px 0 0 rgba(14,165,233,.85);
+    opacity:1;
+  }
+}
+.services{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    120deg,
+    #0ea5e9,
+    #22c55e,
+    #eab308,
+    #f97316,
+    #ec4899,
+    #6366f1,
+    #0ea5e9
+  );
+  background-size: 400% 400%;
+  animation: services-gradient 10s ease-in-out infinite;
+}
+
+@keyframes services-gradient{
+  0%{
+    background-position: 0% 50%;
+  }
+  25%{
+    background-position: 50% 0%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  75%{
+    background-position: 50% 100%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+.about{
+  position:relative;
+  overflow:hidden;
+}
+
+.about .container{
+  position:relative;
+  z-index:1;
+}
+
+/* didelis ryškus burbulas */
+.about::before{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  border-radius:999px;
+  background:radial-gradient(circle at 30% 30%, #38bdf8, #0ea5e9 55%, transparent 70%);
+  top:-80px;
+  right:-120px;
+  opacity:0.9;
+  filter:drop-shadow(0 25px 45px rgba(15,23,42,.35));
+  animation:about-bubble 14s ease-in-out infinite;
+}
+
+/* mažesnis burbulas apačioje */
+.about::after{
+  content:"";
+  position:absolute;
+  width:140px;
+  height:140px;
+  border-radius:999px;
+  border:3px solid rgba(56,189,248,.9);
+  bottom:-40px;
+  left:-20px;
+  opacity:0.8;
+  animation:about-bubble-small 16s ease-in-out infinite;
+}
+
+@keyframes about-bubble{
+  0%,100%{ transform:translate3d(0,0,0); }
+  25%{ transform:translate3d(-25px,10px,0) scale(1.03); }
+  50%{ transform:translate3d(-35px,25px,0) scale(1.07); }
+  75%{ transform:translate3d(-10px,15px,0) scale(1.02); }
+}
+
+@keyframes about-bubble-small{
+  0%,100%{ transform:translate3d(0,0,0); }
+  50%{ transform:translate3d(20px,-15px,0) scale(1.08); }
+}
+.stats i{
+  animation: stats-pulse 3s ease-in-out infinite;
+}
+
+@keyframes stats-pulse{
+  0%,100%{
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(14,165,233,.45);
+  }
+  50%{
+    transform: scale(1.14);
+    box-shadow: 0 0 0 14px rgba(14,165,233,0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior:auto;
+  }
+
+  .section{
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+    transition:none !important;
+  }
+
+  [data-aos],
+  [data-aos].aos-init,
+  [data-aos].aos-animate{
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+    transition:none !important;
+  }
+
+  .hero .social-links a,
+  #preloader::before,
+  .hero::before,
+  .about::before,
+  .about::after,
+  .services,
+  .stats i{
+    animation:none !important;
+    transform:none !important;
+  }
+
+  .about::before,
+  .about::after{
+    display:none !important;
+  }
+
+  .services{
+    background-position:50% 50% !important;
+  }
+
+  .stats .purecounter{
+    position:relative;
+    color:transparent !important;
+  }
+
+  .stats .purecounter::after{
+    content: attr(data-purecounter-end);
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#36454f;
+    font:inherit;
+  }
+
+  .skills .progress-bar{
+    transition:none !important;
+  }
+}
+.about .content { 
+  text-align: center; 
+}
+.about .content ul { 
+  display: inline-block; 
+  text-align: left; 
+}
+
+.portfolio .portfolio-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
