@@ -476,3 +476,17 @@ ul.ul-custom > li::before{
     transition:none !important;
   }
 }
+.about .content { 
+  text-align: center; 
+}
+.about .content ul { 
+  display: inline-block; 
+  text-align: left; 
+}
+
+.portfolio .portfolio-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
