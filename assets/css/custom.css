@@ -490,3 +490,37 @@ ul.ul-custom > li::before{
   object-fit: cover;
   display: block;
 }
+/* 11 LD – formos klaidos ir sėkmės pranešimas */
+
+.form-error{
+  min-height: 1.2rem;
+  font-size: 0.85rem;
+  color: #dc2626; /* raudonas tekstas */
+  margin-top: 0.25rem;
+}
+
+/* Bootstrap jau turi .is-invalid, bet jei norisi ryškiau: */
+.contact .form-control.is-invalid{
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px rgba(220,38,38,.15);
+}
+
+.form-success{
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #dcfce7;
+  border: 1px solid #16a34a;
+  font-weight: 600;
+  text-align: center;
+}
+.footer p{
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+.section-title p{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
