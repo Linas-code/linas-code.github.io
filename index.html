@@ -450,7 +450,44 @@
 
     <!-- Contact Section -->
 <section id="contact" class="contact section">
+  <section id="game" class="game section">
 
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Mano žaidimas</h2>
+    <p>Trumpas atminties žaidimas su IT simboliais.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4 align-items-start">
+
+      <div class="col-lg-8">
+        <div class="game-controls">
+          <label for="game-difficulty" class="form-label mb-0">Sudėtingumas:</label>
+          <select id="game-difficulty" class="form-select">
+            <option value="easy">Lengvas (4×3)</option>
+            <option value="hard">Sunkus (6×4)</option>
+          </select>
+
+          <button type="button" id="game-start" class="game-btn primary">Start</button>
+          <button type="button" id="game-reset" class="game-btn secondary" disabled>Atnaujinti</button>
+        </div>
+
+        <div id="game-board" class="game-board game-board--easy"></div>
+        <p id="game-message" class="game-message d-none"></p>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="game-stats">
+          <h3>Statistika</h3>
+          <p>Ėjimai: <span id="game-moves">0</span></p>
+          <p>Rastos poros: <span id="game-pairs">0</span></p>
+          <p>Laikas: <span id="game-time">0</span> s</p>
+          <p>Geriausias rezultatas: <span id="game-best">–</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>Kontaktai</h2>
