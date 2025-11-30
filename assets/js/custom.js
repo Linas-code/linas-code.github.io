@@ -1,5 +1,3 @@
-// 11 LD – kontaktų formos logika, validacija ir telefono formatavimas
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#contact-form');
   if (!form) return;
@@ -9,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const successMsg = document.querySelector('#form-success');
   const submitBtn = document.querySelector('#contact-submit');
 
-  // Pagalbinės funkcijos
   function onlyLetters(value) {
     return /^[A-Za-zĄČĘĖĮŠŲŪŽąčęėįšųūž\s-]+$/.test(value);
   }
@@ -32,21 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function formatPhone(rawValue) {
     let digits = rawValue.replace(/\D/g, '');
 
-    // Apribojam skaičių kiekį
     if (!digits) return '';
     digits = digits.slice(0, 11);
 
-    // Pabandome išvesti į +370 6xx xxxxx formatą
-    // Įvairūs atvejai: 86..., 6..., 370..., kiti
     if (digits.startsWith('86')) {
-      digits = '370' + digits.slice(1); // 86 -> 3706...
+      digits = '370' + digits.slice(1);
     } else if (digits.startsWith('6')) {
-      digits = '370' + digits;         // 6... -> 3706...
+      digits = '370' + digits;
     } else if (!digits.startsWith('370')) {
-      digits = '3706' + digits;        // bet kas -> 3706...
+      digits = '3706' + digits;
     }
 
-    // užtikrinam, kad prasidėtų 3706
     if (!digits.startsWith('3706')) {
       if (digits.startsWith('370')) {
         digits = digits.slice(0, 3) + '6' + digits.slice(3);
@@ -55,9 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    digits = digits.slice(0, 11); // 3706 + 7 skaitmenys
+    digits = digits.slice(0, 11);
 
-    // formatavimas: +370 6xx xxxxx
     if (digits.length <= 3) {
       return '+' + digits;
     } else if (digits.length <= 4) {
@@ -65,14 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (digits.length <= 5) {
       return '+' + digits.slice(0, 3) + ' ' + digits.slice(3);
     } else {
-      const first = digits.slice(0, 3);   // 370
-      const middle = digits.slice(3, 6);  // 6xx
-      const last = digits.slice(6);       // xxxxx
+      const first = digits.slice(0, 3);
+      const middle = digits.slice(3, 6);
+      const last = digits.slice(6);
       return '+' + first + ' ' + middle + (last ? ' ' + last : '');
     }
   }
 
-  // Visi formos laukai ir jų validacija
   const fields = {
     firstName: {
       input: form.querySelector('#firstName'),
@@ -174,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isFormValid() {
-    // patikrinam VISUS laukus (tinka ir nepaspaudus "submit")
     return Object.keys(fields).every((key) => {
       const field = fields[key];
       if (!field || !field.input) return true;
@@ -188,13 +178,11 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = !isFormValid();
   }
 
-  // Real-time validacija ir telefono formatavimas
   Object.keys(fields).forEach((key) => {
     const field = fields[key];
     if (!field || !field.input) return;
 
     field.input.addEventListener('input', () => {
-      // telefono numeris – su formatavimu
       if (key === 'phone') {
         field.input.value = formatPhone(field.input.value);
       }
@@ -205,14 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Pradinė būsena – mygtukas neaktyvus
   updateSubmitState();
 
-  // Formos pateikimas
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    // priverstinai parodom klaidas, jei yra
     Object.keys(fields).forEach((key) => {
       fields[key].touched = true;
       validateField(key, true);
@@ -225,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Surenkam duomenis į objektą
     const data = {
       firstName: fields.firstName.input.value.trim(),
       lastName: fields.lastName.input.value.trim(),
@@ -237,10 +221,8 @@ document.addEventListener('DOMContentLoaded', () => {
       rating3: Number(fields.rating3.input.value)
     };
 
-    // 4a) objektas – į konsolę
     console.log('Kontaktų formos duomenys:', data);
 
-    // 4b) atvaizduojam po forma
     if (resultsDiv) {
       resultsDiv.innerHTML = `
         <p><strong>Vardas:</strong> ${data.firstName}</p>
@@ -252,15 +234,250 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-    // 5) vidurkis
     const avg = ((data.rating1 + data.rating2 + data.rating3) / 3).toFixed(1);
     if (averageP) {
       averageP.textContent = `${data.firstName} ${data.lastName}: ${avg}`;
     }
 
-    // 6) sėkmės pranešimas
     if (successMsg) {
       successMsg.classList.remove('d-none');
     }
   });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const board = document.querySelector('#game-board');
+  const difficultySelect = document.querySelector('#game-difficulty');
+  const startBtn = document.querySelector('#game-start');
+  const resetBtn = document.querySelector('#game-reset');
+  const movesSpan = document.querySelector('#game-moves');
+  const pairsSpan = document.querySelector('#game-pairs');
+  const messageEl = document.querySelector('#game-message');
+  const timeSpan = document.querySelector('#game-time');
+  const bestSpan = document.querySelector('#game-best');
+
+  if (!board || !difficultySelect || !startBtn || !resetBtn || !movesSpan || !pairsSpan) {
+    return;
+  }
+
+  const symbols = ['💻', '⚡', '🔧', '📡', '🔋', '🧠', '📘', '🎧', '🔐', '🚀', '🖥️', '🧪'];
+
+  let firstCard = null;
+  let secondCard = null;
+  let lockBoard = false;
+  let matches = 0;
+  let moves = 0;
+  let totalPairs = 0;
+  let timerId = null;
+  let secondsElapsed = 0;
+
+  function getDifficultyKey() {
+    return difficultySelect.value === 'hard' ? 'hard' : 'easy';
+  }
+
+  function getStorageKey() {
+    return 'memoryGameBest_' + getDifficultyKey();
+  }
+
+  function loadBest() {
+    if (!bestSpan) {
+      return;
+    }
+    const raw = localStorage.getItem(getStorageKey());
+    if (!raw) {
+      bestSpan.textContent = '–';
+      return;
+    }
+    const value = parseInt(raw, 10);
+    if (Number.isNaN(value)) {
+      bestSpan.textContent = '–';
+      return;
+    }
+    bestSpan.textContent = value + ' ėjimai';
+  }
+
+  function maybeUpdateBest() {
+    const key = getStorageKey();
+    const raw = localStorage.getItem(key);
+    let currentBest = raw ? parseInt(raw, 10) : null;
+    if (!currentBest || moves < currentBest) {
+      localStorage.setItem(key, String(moves));
+      loadBest();
+    }
+  }
+
+  function stopTimer() {
+    if (timerId !== null) {
+      clearInterval(timerId);
+      timerId = null;
+    }
+  }
+
+  function updateTimeDisplay() {
+    if (timeSpan) {
+      timeSpan.textContent = String(secondsElapsed);
+    }
+  }
+
+  function startTimer() {
+    stopTimer();
+    secondsElapsed = 0;
+    updateTimeDisplay();
+    timerId = setInterval(function () {
+      secondsElapsed += 1;
+      updateTimeDisplay();
+    }, 1000);
+  }
+
+  function getPairsCount() {
+    if (difficultySelect.value === 'hard') {
+      return 12;
+    }
+    return 6;
+  }
+
+  function setBoardClass() {
+    board.classList.remove('game-board--easy', 'game-board--hard');
+    if (difficultySelect.value === 'hard') {
+      board.classList.add('game-board--hard');
+    } else {
+      board.classList.add('game-board--easy');
+    }
+  }
+
+  function resetState() {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+    matches = 0;
+    moves = 0;
+    totalPairs = getPairsCount();
+    movesSpan.textContent = '0';
+    pairsSpan.textContent = '0';
+    stopTimer();
+    secondsElapsed = 0;
+    updateTimeDisplay();
+    if (messageEl) {
+      messageEl.textContent = '';
+      messageEl.classList.add('d-none');
+    }
+  }
+
+  function createDeck() {
+    const pairs = getPairsCount();
+    const selected = symbols.slice(0, pairs);
+    const deck = [];
+    selected.forEach(function (value) {
+      deck.push(value);
+      deck.push(value);
+    });
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = tmp;
+    }
+    return deck;
+  }
+
+  function handleCardClick(event) {
+    const card = event.currentTarget;
+    if (lockBoard) {
+      return;
+    }
+    if (card === firstCard) {
+      return;
+    }
+    if (card.classList.contains('is-matched')) {
+      return;
+    }
+
+    card.classList.add('is-flipped');
+
+    if (!firstCard) {
+      firstCard = card;
+      return;
+    }
+
+    secondCard = card;
+    moves += 1;
+    movesSpan.textContent = String(moves);
+    checkForMatch();
+  }
+
+  function renderBoard() {
+    setBoardClass();
+    const deck = createDeck();
+    board.innerHTML = '';
+    deck.forEach(function (value) {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'game-card';
+      card.dataset.value = value;
+      card.innerHTML =
+        '<div class="game-card-inner">' +
+        '<div class="game-card-front"></div>' +
+        '<div class="game-card-back"><span>' + value + '</span></div>' +
+        '</div>';
+      card.addEventListener('click', handleCardClick);
+      board.appendChild(card);
+    });
+  }
+
+  function checkForMatch() {
+    const firstValue = firstCard.dataset.value;
+    const secondValue = secondCard.dataset.value;
+
+    if (firstValue === secondValue) {
+      firstCard.classList.add('is-matched');
+      secondCard.classList.add('is-matched');
+      firstCard.removeEventListener('click', handleCardClick);
+      secondCard.removeEventListener('click', handleCardClick);
+      firstCard = null;
+      secondCard = null;
+      matches += 1;
+      pairsSpan.textContent = String(matches);
+      if (matches === totalPairs) {
+        stopTimer();
+        maybeUpdateBest();
+        if (messageEl) {
+          messageEl.textContent = 'Sveikinimai! Suradote visas poras.';
+          messageEl.classList.remove('d-none');
+        }
+      }
+      return;
+    }
+
+    lockBoard = true;
+    setTimeout(function () {
+      firstCard.classList.remove('is-flipped');
+      secondCard.classList.remove('is-flipped');
+      firstCard = null;
+      secondCard = null;
+      lockBoard = false;
+    }, 800);
+  }
+
+  function startGame() {
+    resetState();
+    renderBoard();
+    resetBtn.disabled = false;
+    startTimer();
+    loadBest();
+  }
+
+  function resetGame() {
+    startGame();
+  }
+
+  startBtn.addEventListener('click', startGame);
+  resetBtn.addEventListener('click', resetGame);
+  difficultySelect.addEventListener('change', function () {
+    resetState();
+    renderBoard();
+    resetBtn.disabled = false;
+    startTimer();
+    loadBest();
+  });
+
+  loadBest();
 });

@@ -1,21 +1,17 @@
-/* 2) TYPOGRAPHY – nauja šriftų šeima, dydžiai, tarpai */
 :root{
-  /* pakeičiam šablono kintamuosius – matomas pokytis visur */
   --default-font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --heading-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --accent-color: #0ea5e9;      /* ryškesnė mėlyna geram kontrastui */
-  --heading-color: #0f172a;     /* tamsesnės antraštės */
-  --default-color: #1f2937;     /* tekstas */
+  --accent-color: #0ea5e9;
+  --heading-color: #0f172a;
+  --default-color: #1f2937;
 }
 
-/* antraščių hierarchija – dydžiai, storis, tarpraidiniai */
 h1{ font-size:clamp(36px,4.8vw,56px); line-height:1.15; letter-spacing:-0.02em; font-weight:900; }
 h2{ font-size:clamp(28px,3.6vw,40px); line-height:1.2;  font-weight:800; }
 h3{ font-size:clamp(22px,2.4vw,28px); line-height:1.25; font-weight:700; }
 h4,h5,h6{ font-weight:700; }
 p{ line-height:1.8; max-width:75ch; }
 
-/* 3) BUTTONS + LINKS su :hover ir :active */
 a{
   color: var(--accent-color);
   text-decoration:none;
@@ -54,7 +50,6 @@ button:active,
   padding: 80px 0;
 }
 
-/* 4b) TURINIO BLOKŲ „kortelės“ – kraštinės, radius, šešėliai */
 #about .container,
 #resume .container,
 #portfolio .container{
@@ -70,8 +65,6 @@ button:active,
   box-shadow: none;
 }
 
-
-/* Sekcijos pavadinimo zona – švaresnė apačia */
 .section-title{
   padding-bottom:40px;
 }
@@ -79,7 +72,6 @@ button:active,
   padding-bottom:16px;
 }
 
-/* (1) Navigacijos juosta (kairėje) */
 .navmenu{
   backdrop-filter: saturate(160%) blur(10px);
 }
@@ -94,7 +86,6 @@ button:active,
   color: var(--contrast-color);
 }
 
-/* (2) Įgūdžių progreso juostos */
 .skills .progress-bar-wrap{
   background:#e5e7eb;
   border-radius:999px;
@@ -106,20 +97,16 @@ button:active,
   height:12px;
 }
 
-/* Papildomai (neprivaloma, bet gražu): „į viršų“ mygtukas */
 .scroll-top{
   border-radius:14px;
   width:48px; height:48px;
   box-shadow:0 12px 30px rgba(14,165,233,.35);
 }
 
-/* 6) KONTRASTAS – užtikrinam gerą skaitomumą ant šviesių fonų */
 .hero p span{ border-bottom: 3px solid var(--accent-color); }
-.footer .social-links a{ color:#fff; }  /* aiškus kontrastas ant akcento */
+.footer .social-links a{ color:#fff; }
 
-/* Smulkūs patogumai */
-img{ border-radius:8px; } /* vizualiai tvarkingiau portfolio */
-/* Pašalinam šoninės juostos pilką/permatomą stulpą */
+img{ border-radius:8px; }
 .header,
 .header::before,
 .navmenu,
@@ -129,7 +116,6 @@ img{ border-radius:8px; } /* vizualiai tvarkingiau portfolio */
   backdrop-filter: none !important;
 }
 
-/* Nuorodos – be fono, bet išsiskleidus/užvedus viskas veikia */
 .navmenu a{
   background: transparent !important;
   border-radius: 12px;
@@ -140,7 +126,6 @@ img{ border-radius:8px; } /* vizualiai tvarkingiau portfolio */
   background: var(--accent-color) !important;
   color: #fff !important;
 }
-/* === Numeruotas sąrašas su skaitikliu === */
 ol.ol-custom{
   counter-reset: item;
   list-style: none;
@@ -164,7 +149,6 @@ ol.ol-custom > li::before{
   font-weight: 800;
   border-radius: 12px;
 }
-/* įdėtinis ol – mažesni badge'ai */
 ol.ol-custom li > ol{ margin-top: .4rem; }
 ol.ol-custom li > ol > li{ padding-left: 1.8rem; }
 ol.ol-custom li > ol > li::before{
@@ -173,7 +157,6 @@ ol.ol-custom li > ol > li::before{
   border-radius: 8px;
 }
 
-/* === Nenumeruotas sąrašas su tašku === */
 ul.ul-custom{
   list-style: none;
   padding-left: 0;
@@ -193,7 +176,6 @@ ul.ul-custom > li::before{
   background: var(--accent-color);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-color), white 80%);
 }
-/* === Services 4×3 lentelė === */
 .services-table{
   width: 100%;
   border-collapse: separate;
@@ -210,7 +192,6 @@ ul.ul-custom > li::before{
   vertical-align: middle;
 }
 
-/* Header Row išskirtinai */
 .services-table thead th{
   background: #f0f9ff;
   font-weight: 800;
@@ -219,11 +200,9 @@ ul.ul-custom > li::before{
   border-bottom: 2px solid #e6f2ff;
 }
 
-/* Zebra + hover efektas */
 .services-table tbody tr:nth-child(odd){ background: #fafafa; }
 .services-table tbody tr:hover{ background: #eef6ff; }
 
-/* Skyrikliai tarp eilučių */
 .services-table tbody td{ border-top: 1px solid #eef2f7; }
 .section{
   animation: section-fade-in 0.7s ease-out both;
@@ -360,7 +339,6 @@ ul.ul-custom > li::before{
   z-index:1;
 }
 
-/* didelis ryškus burbulas */
 .about::before{
   content:"";
   position:absolute;
@@ -375,7 +353,6 @@ ul.ul-custom > li::before{
   animation:about-bubble 14s ease-in-out infinite;
 }
 
-/* mažesnis burbulas apačioje */
 .about::after{
   content:"";
   position:absolute;
@@ -490,16 +467,14 @@ ul.ul-custom > li::before{
   object-fit: cover;
   display: block;
 }
-/* 11 LD – formos klaidos ir sėkmės pranešimas */
 
 .form-error{
   min-height: 1.2rem;
   font-size: 0.85rem;
-  color: #dc2626; /* raudonas tekstas */
+  color: #dc2626;
   margin-top: 0.25rem;
 }
 
-/* Bootstrap jau turi .is-invalid, bet jei norisi ryškiau: */
 .contact .form-control.is-invalid{
   border-color: #dc2626;
   box-shadow: 0 0 0 1px rgba(220,38,38,.15);
@@ -523,4 +498,158 @@ ul.ul-custom > li::before{
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+.game.section{
+  padding-top: 60px;
+}
+
+.game-controls{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.game-controls .form-label{
+  font-weight: 500;
+}
+
+#game-difficulty{
+  min-width: 170px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+.game-btn{
+  border-radius: 999px;
+  border: none;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.game-btn.primary{
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(14,165,233,.4);
+}
+
+.game-btn.secondary{
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.game-btn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.game-btn:not(:disabled):hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(15,23,42,.35);
+}
+
+.game-board{
+  display: grid;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.game-board--easy{
+  grid-template-columns: repeat(4, minmax(64px, 1fr));
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.game-board--hard{
+  grid-template-columns: repeat(6, minmax(52px, 1fr));
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.game-card{
+  position: relative;
+  width: 100%;
+  padding-top: 120%;
+  border: none;
+  background: transparent;
+  perspective: 900px;
+  cursor: pointer;
+}
+
+.game-card-inner{
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: #0f172a;
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 12px 30px rgba(15,23,42,.45);
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease;
+}
+
+.game-card-front,
+.game-card-back{
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card-front{
+  background: linear-gradient(135deg, #22c55e, #0ea5e9);
+}
+
+.game-card-back{
+  transform: rotateY(180deg);
+  background: #020617;
+}
+
+.game-card.is-flipped .game-card-inner{
+  transform: rotateY(180deg);
+  box-shadow: 0 18px 35px rgba(15,23,42,.6);
+}
+
+.game-card.is-matched .game-card-inner{
+  background: #16a34a;
+  box-shadow: 0 0 0 2px rgba(22,163,74,.45);
+}
+
+.game-stats{
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  background: #0f172a;
+  color: #e5e7eb;
+  box-shadow: 0 18px 35px rgba(15,23,42,.55);
+}
+
+.game-stats h3{
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.game-stats p{
+  margin-bottom: 0.4rem;
+}
+
+.game-message{
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 0.85rem;
+  background: #16a34a;
+  color: #ecfdf5;
+  font-weight: 600;
+  text-align: center;
 }
